@@ -1,0 +1,9 @@
+.search-style{
+  margin: 15px;
+  text-align: center;
+}
+.form-align{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,3 @@
+<div class="cards">
+  <app-card *ngFor="let card of cards" [card]="card" (click)="onLoadCard(card.id)"></app-card>
+</div>

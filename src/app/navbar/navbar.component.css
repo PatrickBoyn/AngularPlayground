@@ -1,0 +1,14 @@
+ul{
+  display: flex;
+  justify-content: center;
+  background-color: darkblue;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+  padding: 8px;
+}
+li{
+  list-style: none;
+  padding-left: 50px;
+}
+.active {
+  color: #7c9b9c;
+}
