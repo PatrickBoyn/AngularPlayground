@@ -1,4 +1,5 @@
-<article class="card" [routerLink]="['/browseFiles', card.id]">
+<article class="card" (click)="onClickCard()" *ngFor="let card of cardService.getCards()">
+<!--[routerLink]="[id]"  -->
 <!--Remember to add a type when working with outside variables.-->
   <img src="#" alt="{{card.imgPath}}">
   <h1>{{card.fileTitle}}</h1>
