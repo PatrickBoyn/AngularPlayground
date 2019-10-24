@@ -6,21 +6,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardComponent } from './cards/card/card.component';
 import { CreateCardComponent } from './cards/create-card/create-card.component';
 import { SearchFilesComponent } from './search-files/search-files.component';
-import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { CardsComponent } from './cards/cards.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'searchFiles', component: SearchFilesComponent},
-  {path: 'addFiles', component: CreateCardComponent},
-  {path: 'browseFiles', component: CardsComponent,
-    children: [{path: ':id', component: CardComponent}]
-  },
-  {path: 'not-found', component: PageNotFoundComponent},
-  {path: '**', redirectTo: '/not-found'}
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -35,7 +24,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
