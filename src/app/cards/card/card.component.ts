@@ -1,20 +1,28 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit, Input, Output} from '@angular/core';
 import { CardModel } from '../../models/card.model';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import { CardService } from '../../services/card.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
- @Input() card: CardModel;
- cardDetails: {id: any};
-  constructor(private route: ActivatedRoute) { }
+ @Output() card: CardModel;
+ @Input() id: number;
+
+  constructor(private route: ActivatedRoute, private cardService: CardService, private router: Router) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params[+this.card.id]);
-    this.cardDetails = {
-      id: this.route.params[+this.card.id]
-    };
+    this.route.params.subscribe(
+      (params: Params) => {
+          this.id = +params[this.card.id];
+          this.card = this.cardService.getCard(this.id);
+          console.log(this.card.id);
+      });
+  }
+
+  onClickCard() {
+    this.router.navigate(['browse-files', +this.card.id]);
   }
 }
