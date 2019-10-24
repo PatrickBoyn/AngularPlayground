@@ -4,7 +4,7 @@ import { CardModel } from '../models/card.model';
 @Injectable({
   providedIn: 'root'
 })
-export class CardServiceService {
+export class CardService {
  private cards: CardModel[] = [
 
    // The file names are meaningless.
@@ -16,14 +16,10 @@ export class CardServiceService {
   constructor() { }
 
   getCards(): CardModel[] {
-    return this.cards;
+    return this.cards.slice();
   }
 
-  getCard(id: number)  {
-    const card = this.cards.find(
-      c => {
-        return c.id === id;
-      }
-    );
+  getCard(id: number): CardModel  {
+    return this.cards[id];
   }
 }
