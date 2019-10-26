@@ -12,4 +12,10 @@ export class CreateCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(form: HTMLFormElement) {
+    for (let i = 0; i <= (form[i] as HTMLFormElement).length; i++) {
+      console.log((form[i] as HTMLFormElement).value);
+    }
+  }
+
 }
