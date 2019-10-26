@@ -1,9 +1,9 @@
-<form action="" class="form">
+<form class="form" (ngSubmit)="onSubmit(form)" ngForm #form>
   <label for="image-path">Image Path</label>
-  <input type="text" id="image-path">
+  <input type="text" id="image-path" ngModel name="image-path">
   <label for="file-title">File Title</label>
-  <input type="text" id="file-title">
+  <input type="text" id="file-title" ngModel name="file-title">
   <label for="file-path">File Path</label>
-  <input type="text" id="file-path">
+  <input type="text" id="file-path" ngModel name="file-path">
   <button type="submit">Add new file</button>
 </form>
