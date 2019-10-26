@@ -15,6 +15,13 @@ input{
   margin: 0 10px;
   border-radius: 3px;
 }
+.ng-invalid input {
+  border: 1px solid red;
+}
+.ng-invalid button {
+  background-color: rgba(0, 0, 139, .4);
+  cursor: not-allowed;
+}
 button{
   margin: 15px 10px 10px 10px;
   padding: 3px;
@@ -22,3 +29,10 @@ button{
 button:hover{
    background-color: #2e609c;
  }
+p {
+  text-align: center;
+  background-color: salmon;
+  border: 1px solid red;
+  color: white;
+  margin: 5px 9px;
+}
