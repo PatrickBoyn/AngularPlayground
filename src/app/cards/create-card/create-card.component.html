@@ -2,8 +2,22 @@
   <label for="image-path">Image Path</label>
   <input type="text" id="image-path" ngModel name="image-path">
   <label for="file-title">File Title</label>
-  <input type="text" id="file-title" ngModel name="file-title">
+  <input type="text"
+         id="file-title"
+         class="required"
+         ngModel
+         name="file-title"
+         required
+         #fileTitle="ngModel">
+  <p *ngIf="!fileTitle.valid">Please enter a proper title.</p>
   <label for="file-path">File Path</label>
-  <input type="text" id="file-path" ngModel name="file-path">
-  <button type="submit">Add new file</button>
+  <input type="text"
+         id="file-path"
+         class="required"
+         ngModel
+         name="file-path"
+         required
+         #filePath="ngModel">
+  <p *ngIf="!filePath.valid">Please enter a proper file path.</p>
+  <button type="submit" [disabled]="!form.valid">Add new file</button>
 </form>
