@@ -15,7 +15,7 @@ input{
   margin: 0 10px;
   border-radius: 3px;
 }
-.ng-invalid input {
+ .ng-invalid .required {
   border: 1px solid red;
 }
 .ng-invalid button {
