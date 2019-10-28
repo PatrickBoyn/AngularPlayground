@@ -14,8 +14,9 @@ label {
 input{
   margin: 0 10px;
   border-radius: 3px;
+  border: 1px solid #2e609c;
 }
- .ng-invalid .required {
+ .ng-invalid  .required {
   border: 1px solid red;
 }
 .ng-invalid button {
