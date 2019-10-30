@@ -20,6 +20,7 @@ export class CardService {
   }
 
   getCard(id: number): CardModel  {
+    console.log(`ID is: ${id}`);
     return this.cards[id];
   }
 }
