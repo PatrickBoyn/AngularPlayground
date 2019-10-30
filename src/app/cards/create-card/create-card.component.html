@@ -1,23 +1,33 @@
-<form class="form" (ngSubmit)="onSubmit(form)" ngForm #form>
-  <label for="image-path">Image Path</label>
-  <input type="text" id="image-path" ngModel name="image-path">
-  <label for="file-title">File Title</label>
+<form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm" >
+  <label for="imgPath">Image Path</label>
+  <input type="text" id="imgPath" ngModel name="imagePath">
+  <label for="fileTitle">File Title</label>
   <input type="text"
-         id="file-title"
+         id="fileTitle"
          class="required"
          ngModel
-         name="file-title"
+         name="fileTitle"
          required
          #fileTitle="ngModel">
-  <p *ngIf="!fileTitle.valid">Please enter a proper title.</p>
-  <label for="file-path">File Path</label>
+  <p *ngIf="!fileTitle.valid && fileTitle.touched">Please enter a proper title.</p>
+  <label for="filePath">File Path</label>
   <input type="text"
-         id="file-path"
+         id="filePath"
          class="required"
          ngModel
-         name="file-path"
+         name="filePath"
          required
          #filePath="ngModel">
-  <p *ngIf="!filePath.valid">Please enter a proper file path.</p>
+  <p *ngIf="!filePath.valid && filePath.touched">Please enter a proper file path.</p>
   <button type="submit" [disabled]="!form.valid">Add new file</button>
 </form>
+<!--This is for testing purposes.-->
+<div class="submitted" *ngIf="isSubmitted">
+  <hr>
+  <h2>Is this correct?</h2>
+  <ul>
+    <li>Image path: {{ video.imgPath }}</li>
+    <li>File Title: {{ video.fileTitle }} </li>
+    <li>File Path:  {{ video.filePath }}</li>
+  </ul>
+</div>
