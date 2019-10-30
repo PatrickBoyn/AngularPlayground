@@ -16,13 +16,11 @@ export class CardComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
-          this.id = +params[this.card.id];
           this.card = this.cardService.getCard(this.id);
-          console.log(this.card.id);
       });
   }
 
-  onClickCard() {
-    this.router.navigate(['browse-files', +this.card.id]);
+  onClickCard(id: number) {
+    this.router.navigate(['browse-files', this.card]);
   }
 }
