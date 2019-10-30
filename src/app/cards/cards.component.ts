@@ -10,10 +10,11 @@ import {CardService} from '../services/card.service';
 })
 export class CardsComponent implements OnInit {
   @Output()cards: CardModel[];
-  constructor(private route: ActivatedRoute, private cardService: CardService) { }
+
+  constructor(private route: ActivatedRoute, private cardService: CardService) {}
 
   ngOnInit() {
-    console.log(this.cardService.getCards());
+    console.log(this.cardService.getCards()[0].fileTitle);
     this.route.params.subscribe((params: Params) => {
         this.cards = this.cardService.getCards();
     });
