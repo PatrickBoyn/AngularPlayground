@@ -1,2 +1,4 @@
 <!--  <app-card *ngFor="let card of cards; let i = index" [id]="i"></app-card>-->
-  <app-card class="cards"></app-card>
+<div class="cards">
+  <app-card class="card"  *ngFor="let card of cardService.getCards(); let i = index" [id]="i"></app-card>
+</div>
