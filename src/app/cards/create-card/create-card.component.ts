@@ -8,7 +8,7 @@ import {NgForm} from '@angular/forms';
 })
 export class CreateCardComponent implements OnInit {
   @ViewChild('form', {static: true}) form: NgForm;
-  video: {
+  video = {
     imgPath: '',
     fileTitle: '',
     filePath: ''
@@ -17,14 +17,14 @@ export class CreateCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
   onSubmit(form: NgForm) {
-    this.video.imgPath = (form as NgForm).value.imgPath;
-    this.video.fileTitle = (form as NgForm).value.fileTitle;
-    this.video.filePath = (form as NgForm).value.filePath;
+    this.video.imgPath = form.value.imagePath;
+    this.video.fileTitle = form.value.fileTitle;
+    this.video.filePath = form.value.filePath;
     this.isSubmitted = true;
-    console.log(form);
   }
 
 }
