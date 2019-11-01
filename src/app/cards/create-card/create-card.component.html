@@ -1,5 +1,5 @@
 <form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm" >
-  <label for="imgPath">Image Path</label>
+    <label for="imgPath">Image Path</label>
   <input type="text" id="imgPath" ngModel name="imagePath">
   <label for="fileTitle">File Title</label>
   <input type="text"
@@ -29,8 +29,8 @@
   <hr>
   <h2>Is this correct?</h2>
   <ul>
-    <li>Image path: {{ video.imgPath['imagePath'] }}</li>
-    <li>File Title: {{ video.fileTitle['fileTitle'] }} </li>
-    <li>File Path:  {{ video.filePath['filePath'] }}</li>
+    <li>Image path: {{ video.imgPath }}</li>
+    <li>File Title: {{ video.fileTitle }} </li>
+    <li>File Path:  {{ video.filePath}}</li>
   </ul>
 </div>
