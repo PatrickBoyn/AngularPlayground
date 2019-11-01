@@ -4,7 +4,7 @@
   <label for="fileTitle">File Title</label>
   <input type="text"
          id="fileTitle"
-         class="required"
+         [ngClass]="{'required': !fileTitle.valid && fileTitle.touched}"
          ngModel
          name="fileTitle"
          required
@@ -15,8 +15,10 @@
          id="filePath"
          class="required"
          ngModel
+         [ngClass]="{'required': !filePath.valid && filePath.touched}"
          name="filePath"
          required
+         pattern="^(?:[A-Z]:)\\((\b\w+\b)?\\)+?(\w+).mp4"
          #filePath="ngModel">
   <p *ngIf="!filePath.valid && filePath.touched">Please enter a proper file path.</p>
   <button type="submit" [disabled]="!form.valid">Add new file</button>
