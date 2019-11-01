@@ -11,6 +11,7 @@
          #fileTitle="ngModel">
   <p *ngIf="!fileTitle.valid && fileTitle.touched">Please enter a proper title.</p>
   <label for="filePath">File Path</label>
+<!--The pattern is for Windows drives, this is for my own personal use.-->
   <input type="text"
          id="filePath"
          class="required"
@@ -28,8 +29,8 @@
   <hr>
   <h2>Is this correct?</h2>
   <ul>
-    <li>Image path: {{ video.imgPath }}</li>
-    <li>File Title: {{ video.fileTitle }} </li>
-    <li>File Path:  {{ video.filePath }}</li>
+    <li>Image path: {{ video.imgPath['imagePath'] }}</li>
+    <li>File Title: {{ video.fileTitle['fileTitle'] }} </li>
+    <li>File Path:  {{ video.filePath['filePath'] }}</li>
   </ul>
 </div>
