@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-create-card',
@@ -14,17 +15,17 @@ export class CreateCardComponent implements OnInit {
     filePath: ''
   };
   isSubmitted = false;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
 
   }
 
-  onSubmit(form: NgForm) {
-    this.video.imgPath = form.value.imagePath;
-    this.video.fileTitle = form.value.fileTitle;
-    this.video.filePath = form.value.filePath;
-    this.isSubmitted = true;
+  onCreateCard(postData: {fileTitle: string, filePath: string}) {
+    this.http.post('https://fileserverproject-1e496.firebaseio.com/files.json', postData)
+      .subscribe(responseData => {
+        console.log(responseData);
+      });
   }
 
 }
