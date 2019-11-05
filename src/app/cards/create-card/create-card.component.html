@@ -1,6 +1,4 @@
-<form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm" >
-    <label for="imgPath">Image Path</label>
-  <input type="text" id="imgPath" ngModel name="imagePath">
+<form class="form" (ngSubmit)="onCreateCard(form.value)" #form="ngForm" >
   <label for="fileTitle">File Title</label>
   <input type="text"
          id="fileTitle"

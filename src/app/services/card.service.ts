@@ -8,10 +8,10 @@ export class CardService {
  private cards: CardModel[] = [
 
    // The file names are meaningless.
-    new CardModel(1, 'Image Path', 'AA1.mp4', 'C:\\Users\\dakil\\Desktop\\Extras'),
-    new CardModel(2, 'Image path', 'AA2.mp4', 'C:\\Users\\dakil\\Desktop\\Extras'),
-    new CardModel(3, 'Image path', 'AA4.mp4', 'C:\\Users\\dakil\\Desktop\\Extras'),
-    new CardModel(4, 'Image path', 'AF.mp4', 'C:\\Users\\dakil\\Desktop\\Extras')
+    new CardModel(1,  'AA1.mp4', 'C:\\Users\\dakil\\Desktop\\Extras'),
+    new CardModel(2,  'AA2.mp4', 'C:\\Users\\dakil\\Desktop\\Extras'),
+    new CardModel(3,  'AA4.mp4', 'C:\\Users\\dakil\\Desktop\\Extras'),
+    new CardModel(4,  'AF.mp4', 'C:\\Users\\dakil\\Desktop\\Extras')
   ];
   constructor() { }
 
