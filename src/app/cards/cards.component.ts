@@ -14,7 +14,7 @@ export class CardsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private cardService: CardService) {}
 
   ngOnInit() {
-    console.log(this.cardService.getCards()[0].fileTitle);
+    console.log(this.cardService.getCards());
     this.route.params.subscribe((params: Params) => {
         this.cards = this.cardService.getCards();
     });
