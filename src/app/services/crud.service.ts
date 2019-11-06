@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,15 @@ export class CrudService {
 
   getCards() {
     this.http.get('https://fileserverproject-1e496.firebaseio.com/files.json')
+      .pipe(map(response => {
+        const responseArray = [];
+        for (const key in response) {
+          if (response.hasOwnProperty(key)) {
+            responseArray.push({...response[key], id: key});
+          }
+        }
+        return responseArray;
+      }))
       .subscribe(response => {
         console.log(response);
       });
