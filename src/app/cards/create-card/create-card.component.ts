@@ -16,17 +16,13 @@ export class CreateCardComponent implements OnInit {
     filePath: ''
   };
   isSubmitted = false;
-  constructor(private http: HttpClient, private crudService: CrudService) { }
+  constructor(private crudService: CrudService) { }
 
   ngOnInit() {
-
+    this.crudService.getCards();
   }
 
   onCreateCard(postData: {fileTitle: string, filePath: string}) {
-    // this.http.post('https://fileserverproject-1e496.firebaseio.com/files.json', postData)
-    //   .subscribe(responseData => {
-    //     console.log(responseData);
-    //   });
     console.log(this.crudService.createCard(postData));
   }
 
