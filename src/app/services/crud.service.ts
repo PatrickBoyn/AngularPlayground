@@ -7,11 +7,19 @@ import {HttpClient} from '@angular/common/http';
 export class CrudService {
 
   constructor(private http: HttpClient) { }
+
   createCard(cardData: { fileTitle: string, filePath: string}) {
     this.http.post('https://fileserverproject-1e496.firebaseio.com/files.json', cardData)
       .subscribe(response => {
         console.log(`Response ${response}`);
       });
     console.log(`Card Data: ${cardData}`);
+  }
+
+  getCards() {
+    this.http.get('https://fileserverproject-1e496.firebaseio.com/files.json')
+      .subscribe(response => {
+        console.log(response);
+      });
   }
 }
