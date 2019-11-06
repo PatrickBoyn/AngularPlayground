@@ -1,7 +1,7 @@
 import {Component, OnInit, Input, Output} from '@angular/core';
 import { CardModel } from '../../models/card.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import { CardService } from '../../services/card.service';
+import {CrudService} from '../../services/crud.service';
 
 @Component({
   selector: 'app-card',
@@ -9,22 +9,12 @@ import { CardService } from '../../services/card.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
- @Output() card: CardModel;
+ @Input() card: any;
  @Input() id: number;
 
-  constructor(private route: ActivatedRoute, private cardService: CardService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private crudService: CrudService) { }
 
   ngOnInit() {
-    console.log(`Card type: ${typeof this.card}`);
-    this.route.params.subscribe(
-      (params: Params) => {
-        this.id = +params[this.id];
-        this.card = this.cardService.getCard(this.id);
-      });
-
-  }
-
-  onClickCard(id: number) {
-    this.router.navigate(['browse-files', this.card[0].id]);
+    this.card = this.crudService.loadedCards;
   }
 }
