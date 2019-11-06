@@ -1,8 +1,7 @@
-<article class="card" (click)="onClickCard(card.id)">
+<article *ngFor="let c of card" class="card">
 <!--[routerLink]="[id]"  -->
 <!--Remember to add a type when working with outside variables.-->
-  <img src="#" alt="{{card.imgPath}}">
-  <h1>{{card.fileTitle}}</h1>
+  <h1>{{c.fileTitle}}</h1>
   <hr>
-  <p>{{card.filePath}} </p>
+  <p>{{c.filePath}} </p>
 </article>
