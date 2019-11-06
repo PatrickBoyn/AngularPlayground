@@ -7,7 +7,7 @@ import {CreateCard} from '../models/createCard.model';
   providedIn: 'root'
 })
 export class CrudService {
-
+  loadedCards: CreateCard[] = [];
   constructor(private http: HttpClient) { }
 
   createCard(cardData: CreateCard) {
@@ -30,11 +30,7 @@ export class CrudService {
         return responseArray;
       }))
       .subscribe(response => {
-        for (const item of response) {
-          console.log(`File Title: ${item.fileTitle}`);
-          console.log(`File Path: ${item.filePath}`);
-          console.log('***************************');
-        }
+        this.loadedCards = response;
       });
   }
 }
