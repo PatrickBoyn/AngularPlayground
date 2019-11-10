@@ -1,36 +1,32 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {CreateCard} from '../models/createCard.model';
+// import {CreateCard} from '../models/createCard.model';
+import {CardModel} from '../models/card.model';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
-  loadedCards: CreateCard[] = [];
+  loadedCards: CardModel[] = [];
+
   constructor(private http: HttpClient) { }
 
-  createCard(cardData: CreateCard) {
-    this.http.post<{name: string}>('https://fileserverproject-1e496.firebaseio.com/files.json', cardData)
-      .subscribe(response => {
-        console.log(`Response ${response}`);
-      });
-    console.log(`Card Data: ${cardData}`);
+  createCard(cardData: CardModel) {
+   return this.http.post<{name: string}>('https://fileserverproject-1e496.firebaseio.com/files.json', cardData);
   }
 
   getCards() {
-    this.http.get<{[key: string]: CreateCard}>('https://fileserverproject-1e496.firebaseio.com/files.json')
+    return this.http.get<{[key: string]: CardModel}>('https://fileserverproject-1e496.firebaseio.com/files.json')
       .pipe(map(response => {
-        const responseArray: CreateCard[] = [];
+        const responseArray = this.loadedCards;
         for (const key in response) {
           if (response.hasOwnProperty(key)) {
             responseArray.push({...response[key], id: key});
           }
         }
         return responseArray;
-      }))
-      .subscribe(response => {
-        this.loadedCards = response;
-      });
+      }));
   }
 }
