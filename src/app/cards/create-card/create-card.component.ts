@@ -23,7 +23,10 @@ export class CreateCardComponent implements OnInit {
   }
 
   onCreateCard(postData: {fileTitle: string, filePath: string}) {
-    console.log(this.crudService.createCard(postData));
+    console.log(this.crudService.createCard(postData)
+      .subscribe(response => {
+      console.log(`Response ${response}`);
+    }));
   }
 
 }
