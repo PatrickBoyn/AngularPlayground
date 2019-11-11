@@ -11,9 +11,7 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'search-files', component: SearchFilesComponent},
   {path: 'add-files', component: CreateCardComponent},
-  {path: 'browse-files', component: CardsComponent,
-    children: [{path: ':id', component: CardComponent}]
-  },
+  {path: 'browse-files', component: CardsComponent},
   {path: 'not-found', component: PageNotFoundComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
