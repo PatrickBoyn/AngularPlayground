@@ -10,20 +10,14 @@ import {Observable, Subscription} from 'rxjs';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit, OnDestroy {
-  @Output() card: Subscription;
+export class CardsComponent implements OnInit {
+  @Output() card: any;
   @Output() cardList: CardModel[];
 
   constructor(private crudService: CrudService) {}
 
   ngOnInit() {
+    this.card = this.crudService.getCards();
     this.cardList = this.crudService.loadedCards;
-    if (this.cardList.length === 0) {
-      this.card = this.crudService.getCards().subscribe();
-    }
-  }
-
-  ngOnDestroy() {
-    this.card.unsubscribe();
   }
 }
