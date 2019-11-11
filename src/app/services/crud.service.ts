@@ -18,15 +18,19 @@ export class CrudService {
   }
 
   getCards() {
-    return this.http.get<{[key: string]: CardModel}>('https://fileserverproject-1e496.firebaseio.com/files.json')
+     this.http.get<{[key: string]: CardModel}>('https://fileserverproject-1e496.firebaseio.com/files.json')
       .pipe(map(response => {
         const responseArray = this.loadedCards;
         for (const key in response) {
-          if (response.hasOwnProperty(key)) {
+          // This checks to see if there is a response, and that it never exceeds the response length.
+          // Without checking the length of the response there's a pretty bad memory leak.
+          if (response.hasOwnProperty(key) && this.loadedCards.length <= Object.keys(response).length - 1) {
             responseArray.push({...response[key], id: key});
           }
         }
+        console.log(response);
+        console.log(this.loadedCards);
         return responseArray;
-      }));
+      })).subscribe();
   }
 }
