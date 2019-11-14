@@ -12,23 +12,22 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {CardsModule} from './cards/cards.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CardComponent,
-    CreateCardComponent,
     SearchFilesComponent,
     HomeComponent,
-    CardsComponent,
     PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CardsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
