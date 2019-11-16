@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {SearchFilesComponent} from '../search-files.component';
+import {SharedModulesModule} from '../../../shared/shared-modules/shared-modules.module';
 
 
 
 @NgModule({
   declarations: [SearchFilesComponent],
   imports: [
-    CommonModule
+    SharedModulesModule
   ]
 })
 export class SearchFilesModule { }
