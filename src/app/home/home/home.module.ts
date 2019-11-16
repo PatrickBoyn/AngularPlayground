@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
 import {HomeComponent} from '../home.component';
+import {SharedModulesModule} from '../../../shared/shared-modules/shared-modules.module';
 
 
 
 @NgModule({
   declarations: [HomeComponent],
   imports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule,
+    SharedModulesModule
   ]
 })
 export class HomeModule { }
