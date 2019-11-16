@@ -5,6 +5,7 @@ import {CreateCardComponent} from './create-card/create-card.component';
 import {CardsComponent} from './cards.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import {SharedModulesModule} from '../../shared/shared-modules/shared-modules.module';
 
 
 
@@ -15,9 +16,8 @@ import {FormsModule} from '@angular/forms';
     CardsComponent,
   ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule
-  ]
+    SharedModulesModule
+  ],
+
 })
 export class CardsModule { }
