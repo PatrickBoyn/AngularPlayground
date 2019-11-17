@@ -10,8 +10,7 @@ import {CardsModule} from './cards/cards.module';
 import {HomeModule} from './home/home/home.module';
 import {SearchFilesModule} from './search-files/search-files/search-files.module';
 import {PageNotFoundModule} from './page-not-found/page-not-found/page-not-found.module';
-import {CardService} from './services/card.service';
-import {CrudService} from './services/crud.service';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -26,13 +25,11 @@ import {CrudService} from './services/crud.service';
     CardsModule,
     HomeModule,
     SearchFilesModule,
-    PageNotFoundModule
+    PageNotFoundModule,
+    CoreModule
   ],
   // More for experimentation than a need.
-  providers: [
-    CardService,
-    CrudService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
